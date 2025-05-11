@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Modelos
+{
+    public class Compromisso
+    {
+        public DateTime DataHora { get; }
+        public string Descricao { get; }
+        public Usuario Responsavel { get; }
+        public Local Local { get; }
+
+        private readonly List<Participante> _participantes = new();
+        public IReadOnlyCollection<Participante> Participantes => _participantes.AsReadOnly();
+
+        private readonly List<Anotacao> _anotacoes = new();
+        public IReadOnlyCollection<Anotacao> Anotacoes => _anotacoes.AsReadOnly();
+
+        public Compromisso(DateTime dataHora, string descricao, Usuario responsavel, Local local)
+        {
+            if (dataHora <= DateTime.Now)
+                throw new ArgumentException("A data e hora do compromisso devem ser futuras.");
+
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentException("A descrição do compromisso é obrigatória.");
+
+            DataHora = dataHora;
+            Descricao = descricao;
+            Responsavel = responsavel ?? throw new ArgumentNullException(nameof(responsavel));
+            Local = local ?? throw new ArgumentNullException(nameof(local));
+        }
+
+        public void AdicionarParticipante(Participante participante)
+        {
+            if (participante == null)
+                throw new ArgumentNullException(nameof(participante));
+
+            if (_participantes.Contains(participante))
+                throw new InvalidOperationException("Participante já adicionado.");
+
+            if (!Local.ValidarCapacidade(_participantes.Count + 1))
+                throw new InvalidOperationException("A capacidade máxima do local foi atingida.");
+
+            _participantes.Add(participante);
+            participante.AdicionarCompromisso(this);
+        }
+
+        public void AdicionarAnotacao(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                throw new ArgumentException("A anotação não pode ser vazia.");
+
+            _anotacoes.Add(new Anotacao(texto));
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"Compromisso: {Descricao}");
+            sb.AppendLine($"Data e Hora: {DataHora}");
+            sb.AppendLine($"Responsável: {Responsavel.Nome}");
+            sb.AppendLine($"Local: {Local.Nome} (Capacidade: {Local.CapacidadeMaxima})");
+            sb.AppendLine($"Participantes: {_participantes.Count}");
+            sb.AppendLine($"Anotações: {_anotacoes.Count}");
+            return sb.ToString();
+        }
+    }
+}
