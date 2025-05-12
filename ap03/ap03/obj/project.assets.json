@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\tawvi\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tawvi\\OneDrive\\Documentos\\C99\\ap03\\ap03\\ap03.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Documentos\\GitHub\\AP03\\ap03\\ap03\\ap03.csproj",
       "projectName": "ap03",
-      "projectPath": "C:\\Users\\tawvi\\OneDrive\\Documentos\\C99\\ap03\\ap03\\ap03.csproj",
-      "packagesPath": "C:\\Users\\tawvi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tawvi\\OneDrive\\Documentos\\C99\\ap03\\ap03\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\OneDrive\\Documentos\\GitHub\\AP03\\ap03\\ap03\\ap03.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\OneDrive\\Documentos\\GitHub\\AP03\\ap03\\ap03\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tawvi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
