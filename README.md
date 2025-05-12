@@ -24,4 +24,5 @@ Este projeto consiste em um sistema de console em C# para **reservas de salas**,
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
 ✒️ Autores
--Mariana Tawan V. S. de Oliveira
+- Tawan V. S. de Oliveira
+- Mariana Veiga Dos Santos
